@@ -1,0 +1,24 @@
+{
+  "name": "testappium",
+  "version": "1.0.0",
+  "description": "an example appium test project",
+  "scripts": {
+    "kill-appium": "taskkill /IM node.exe /F",
+    "kill-emulator": "adb -s emulator-5554 emu kill",
+    "nexus_s": "emulator -avd Nexus_S_API_28 -no-snapshot-load",
+    "nexus_10": "emulator -avd Nexus_10_API_28 -no-snapshot-load",
+    "test": "wdio wdio.conf.js"
+  },
+  "author": "Fisher Dong",
+  "devDependencies": {
+    "@wdio/cli": "^5.4.17",
+    "@wdio/dot-reporter": "^5.4.15",
+    "@wdio/local-runner": "^5.4.17",
+    "@wdio/mocha-framework": "^5.4.14",
+    "@wdio/sync": "^5.4.14",
+    "@wdio/selenium-standalone-service": "^5.0.0",
+    "appium": "^1.10",
+    "wdio-appium-service": "^0.2.3",
+    "webdriverio": "^5.4.15"
+  }
+}
