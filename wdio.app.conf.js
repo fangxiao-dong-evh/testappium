@@ -51,7 +51,12 @@ exports.config = {
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
         maxInstances: 1,
-        browserName: 'chrome'
+        'appiumVersion': '1.10.1',
+        'platformVersion': '9.0',
+        'platformName': 'Android',
+        'deviceName': 'Nexus_S_API_28',
+        'automationName': 'UiAutomator2',
+        'app': 'C:\\Users\\fdong\\Evolent\\testappium\\ApiDemos-debug.apk'
     }],
     //
     // ===================
@@ -89,11 +94,12 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['selenium-standalone'],
-    // seleniumArgs: {
-    //     seleniumArgs: ["-port", "4441"]
-    // },
-    //
+    services: ['appium'],
+
+    appium: {
+        
+    }
+    port: 4723,
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks.html

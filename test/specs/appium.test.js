@@ -5,11 +5,14 @@ const path = require('path');
 const wdio = require('webdriverio');
 
 const opts = {
-    hostname: '127.0.0.1',
+    hostname: 'localhost',
     port: 4723,
     capabilities: {
+        platformName: "Android",
+        platformVersion: "9.0",
+        deviceName: "Android Emulator",
         automationName: 'UiAutomator2',
-        app: path.join(__dirname, 'ApiDemos-debug.apk'),
+        app: path.join(__dirname, 'ApiDemos-debug.apk')
     }
 };
 
