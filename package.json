@@ -5,18 +5,20 @@
   "scripts": {
     "kill-appium": "taskkill /IM node.exe /F",
     "kill-emulator": "adb -s emulator-5554 emu kill",
-    "nexus_s": "emulator -avd Nexus_S_API_28 -no-snapshot-load",
-    "nexus_10": "emulator -avd Nexus_10_API_28 -no-snapshot-load",
-    "test": "wdio wdio.app.conf.js"
+    "nexus_s": "emulator -avd Nexus_S_API_28",
+    "nexus_10": "emulator -avd Nexus_10_API_28",
+    "start-appium": "appium-controller --start",
+    "stop-appium": "appium-controller --stop",
+    "test": "npm run start-appium && wdio wdio.app.conf.js && npm run kill-emulator && npm run stop-appium"
   },
   "author": "Fisher Dong",
   "devDependencies": {
     "@wdio/cli": "^5.4.17",
     "@wdio/local-runner": "^5.4.17",
     "@wdio/mocha-framework": "^5.4.14",
-    "@wdio/selenium-standalone-service": "^5.4.14",
     "@wdio/sync": "^5.4.14",
     "appium": "^1.10.1",
+    "appium-controller": "^1.1.6",
     "wdio-appium-service": "^0.2.3",
     "webdriverio": "^5.4.17"
   }

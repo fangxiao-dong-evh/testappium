@@ -1,3 +1,5 @@
+const path = require('path');
+
 exports.config = {
     //
     // ====================
@@ -7,6 +9,8 @@ exports.config = {
     // WebdriverIO allows it to run your tests in arbitrary locations (e.g. locally or
     // on a remote machine).
     runner: 'local',
+
+    port: 4723,
     
     //
     // ==================
@@ -51,12 +55,17 @@ exports.config = {
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
         maxInstances: 1,
-        'appiumVersion': '1.10.1',
-        'platformVersion': '9.0',
-        'platformName': 'Android',
-        'deviceName': 'Nexus_S_API_28',
-        'automationName': 'UiAutomator2',
-        'app': 'C:\\Users\\fdong\\Evolent\\testappium\\ApiDemos-debug.apk'
+        appiumVersion: '1.10.1',
+        platformVersion: '9.0',
+        platformName: 'Android',
+        avd: 'Nexus_S_API_28',
+        // avdArgs: '-no-snapshot-shot',
+        deviceName: 'Android Emulator',
+        automationName: 'UiAutomator2',
+        app: path.join(__dirname, 'ApiDemos-debug.apk'),
+        waitForTimeout: 30000,
+        commandTimeout: 30000,
+        adbExecTimeout: 60000
     }],
     //
     // ===================
@@ -97,10 +106,13 @@ exports.config = {
     services: ['appium'],
 
     appium: {
-
+        command: 'appium',
+        args: {
+            commandTimeout: '7200',
+            sessionOverride: true,
+            debugLogSpacing: true
+        }
     },
-    
-    port: 4723,
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks.html
